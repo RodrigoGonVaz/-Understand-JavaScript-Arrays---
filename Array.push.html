@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plunker</title>
+</head>
+<body>
+
+    <input type="text" id="input">
+
+    <button type="button" id="button">Add</button>
+
+    <ul id="list">
+        <!-- Pets -->
+    </ul>
+
+    <script>
+
+const input  = document.querySelector('#input');
+const button = document.querySelector('#button');
+const list   = document.querySelector('#list');
+
+const pets   = [];
+
+button.addEventListener("click", function (evt) {
+    if (input.value.length > 0) {
+        pets.push(input.value);
+        input.value = "";
+        render();
+    }
+});
+
+function render () {
+    list.innerHTML = pets.map(x => `<li>${x}</li>`).join('');
+}
+
+//Aquí tenemos una entrada de texto, un botón y una lista. Para mostrar la inserción de matriz en uso, usaremos una matriz para representar los elementos de la lista. 
+
+//Luego, en JavaScript, primero obtenemos una referencia a cada elemento DOM que necesitamos, luego inicializamos la matriz de mascotas, agregamos un detector de eventos al botón para que podamos responder a los clics, y luego tenemos un render que toma la matriz de mascotas, genera un elemento de lista para cada elemento en ella, los une y luego establece que es el HTML interno en esa lista. Entonces, lo primero que debemos hacer es verificar que realmente haya algo en el cuadro de entrada.
+//Podemos decir si input.value.length > 0 entonces queremos agregar el valor a la matriz de mascotas. Ahí es donde usamos push. Después de agregar el elemento, probablemente desee restablecer el valor dentro de ese campo de texto, puede hacerlo configurándolo en un string vacía. Finalmente, queremos llamar a render para mostrar los resultados en la pantalla. Si recargamos, escribimos perro, hacemos clic en agregar, puede ver que el perro se agrega a la lista y este se vacía. Ahora podemos agregar cat y puede ver que estamos construyendo esta matriz.
+
+
+    </script>
+</body>
+</html>
